@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentResult } from '../../models/student-result.model';
+import { StudentResult, TableData } from '../../models/student-result.model';
 import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-student-result',
@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class StudentResultComponent implements OnInit {
   data : StudentResult[];
-  tableData: any;
+  tableData: TableData[];
   constructor(private route  : ActivatedRoute) { }
 
   ngOnInit() {
@@ -17,7 +17,7 @@ export class StudentResultComponent implements OnInit {
   }
   generateTableData(data): void {
     this.tableData = data.map(res => {
-      let newArray = [];
+      let newArray : TableData[] = [];
       let sum = 0;
       let obj = {};
       obj['name'] = res.name;
@@ -34,6 +34,7 @@ export class StudentResultComponent implements OnInit {
       })
       return obj;
     })
+    console.log(this.tableData);
     this.tableData.filter(data => {
       let highest = this.getMax(this.tableData,'total');
       if(data['total'] === highest['total']){

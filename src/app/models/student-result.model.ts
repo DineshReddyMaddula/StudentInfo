@@ -7,3 +7,10 @@ export class StudentResult {
     };
     rollNumber  :   String
 }
+export class TableData {
+    name : String;
+    rollnumber : String;
+    status : String;
+    total : number;
+    max : boolean;
+}
