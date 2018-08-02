@@ -12,8 +12,7 @@ model = {
   lastName : '',
   class: '',
   year: '',
-  marks: '',
-  formvalid: false
+  marks: ''
 }
   constructor() { }
 
