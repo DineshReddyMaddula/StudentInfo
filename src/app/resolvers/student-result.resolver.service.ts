@@ -7,8 +7,8 @@ import { StudentResult } from '../models/student-result.model';
 @Injectable()
 export class StudentResultResolverService implements Resolve<Observable<StudentResult[]>> {
 
-  constructor(private service : StudentResultService) { }
-  resolve (){
-    return this.service.getResults().map(res => res)
+  constructor(private service: StudentResultService) { }
+  resolve() {
+    return this.service.getResults().map(res => res);
   }
 }

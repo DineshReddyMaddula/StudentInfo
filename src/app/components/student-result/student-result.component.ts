@@ -7,9 +7,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./student-result.component.css'],
 })
 export class StudentResultComponent implements OnInit {
-  data : StudentResult[];
+  data: StudentResult[];
   tableData: TableData[];
-  constructor(private route  : ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.data = this.route.snapshot.data['results'];
@@ -17,7 +17,7 @@ export class StudentResultComponent implements OnInit {
   }
   generateTableData(data): void {
     this.tableData = data.map(res => {
-      let newArray : TableData[] = [];
+      let newArray: TableData[] = [];
       let sum = 0;
       let obj = {};
       obj['name'] = res.name;
@@ -34,22 +34,21 @@ export class StudentResultComponent implements OnInit {
       })
       return obj;
     })
-    console.log(this.tableData);
     this.tableData.filter(data => {
-      let highest = this.getMax(this.tableData,'total');
-      if(data['total'] === highest['total']){
+      let highest = this.getMax(this.tableData, 'total');
+      if (data['total'] === highest['total']) {
         return data['max'] = true;
-      }else {
+      } else {
         return data['max'] = false;
       }
     })
   }
   getMax(arr, prop) {
     var max;
-    for (var i=0 ; i<arr.length ; i++) {
-        if (!max || parseInt(arr[i][prop]) > parseInt(max[prop]))
-            max = arr[i];
+    for (var i = 0; i < arr.length; i++) {
+      if (!max || parseInt(arr[i][prop]) > parseInt(max[prop]))
+        max = arr[i];
     }
     return max;
-}
+  }
 }

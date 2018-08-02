@@ -1,26 +1,28 @@
 <div class="container">
-    <table class = "table table-bordered ">
-  
-        <thead>
-            <tr>
-                <th colspan="4" style="text-align: center; color:cadetblue"><h3>Students Result Board</h3></th>
-              </tr>
-           <tr>
-              <th>Student Name</th>
-              <th>Roll Number</th>
-              <th>Total Marks</th>
-              <th>Status</th>
-           </tr>
-        </thead>
-        
-        <tbody>
-           <tr *ngFor = "let data of tableData" >
-             <td [style.color] = "data.status == 'Fail' ? 'red' : data.max ? 'green' : 'black'">{{data.name}}</td>
-             <td [style.color] = "data.status == 'Fail' ? 'red' : data.max ? 'green' : 'black'">{{data.rollnumber}}</td>
-             <td [style.color] = "data.status == 'Fail' ? 'red' : data.max ? 'green' : 'black'">{{data.total }}</td>
-             <td [style.color] = "data.status == 'Fail' ? 'red' : data.max ? 'green' : 'black'">{{data.status}}</td>
-           </tr>
-        </tbody>
-        
-      </table>
+  <table class="table table-bordered ">
+
+    <thead>
+      <tr>
+        <th colspan="4" style="text-align: center; color:cadetblue">
+          <h3>Students Result Board</h3>
+        </th>
+      </tr>
+      <tr>
+        <th>Student Name</th>
+        <th>Roll Number</th>
+        <th>Total Marks</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let data of tableData">
+        <td [style.color]="data.status == 'Fail' ? 'red' : data.max ? 'green' : 'black'">{{data.name}}</td>
+        <td [style.color]="data.status == 'Fail' ? 'red' : data.max ? 'green' : 'black'">{{data.rollnumber}}</td>
+        <td [style.color]="data.status == 'Fail' ? 'red' : data.max ? 'green' : 'black'">{{data.total }}</td>
+        <td [style.color]="data.status == 'Fail' ? 'red' : data.max ? 'green' : 'black'">{{data.status}}</td>
+      </tr>
+    </tbody>
+
+  </table>
 </div>

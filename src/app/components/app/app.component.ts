@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { StudentResultComponent } from '../student-result/student-result.component';
-import { StudentAdmissionComponent } from '../student-admission/student-admission.component';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +6,4 @@ import { StudentAdmissionComponent } from '../student-admission/student-admissio
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'StudentInfo';
 }

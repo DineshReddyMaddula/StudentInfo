@@ -5,18 +5,19 @@ import { StudentAdmissionComponent } from '../components/student-admission/stude
 import { StudentResultResolverService } from '../resolvers/student-result.resolver.service';
 
 const routes: Routes = [
-    {
-        path        :   'resultboard',
-        pathMatch   :   'full',
-        component   :   StudentResultComponent,
-        resolve     :   { results : StudentResultResolverService}
-    } ,
-    {
-      path : 'admission',
-      pathMatch : 'full',
-      component : StudentAdmissionComponent
-    },
-    { path: '',
+  {
+    path: 'resultboard',
+    pathMatch: 'full',
+    component: StudentResultComponent,
+    resolve: { results: StudentResultResolverService }
+  },
+  {
+    path: 'admission',
+    pathMatch: 'full',
+    component: StudentAdmissionComponent
+  },
+  {
+    path: '',
     redirectTo: '/resultboard',
     pathMatch: 'full'
   }
@@ -25,8 +26,8 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes)
   ],
-  exports : [RouterModule],
-  providers:  [StudentResultResolverService],
+  exports: [RouterModule],
+  providers: [StudentResultResolverService],
   declarations: []
 })
 export class AppRoutingModule { }
