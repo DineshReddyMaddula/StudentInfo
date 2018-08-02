@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentResult } from '../../models/student-result.model';
-import { StudentResultService } from '../../services/student-result.service';
 import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-student-result',
@@ -10,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class StudentResultComponent implements OnInit {
   data : StudentResult[];
   tableData: any;
-  constructor(private service: StudentResultService, private route  : ActivatedRoute) { }
+  constructor(private route  : ActivatedRoute) { }
 
   ngOnInit() {
     this.data = this.route.snapshot.data['results'];
