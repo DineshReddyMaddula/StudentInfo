@@ -1,25 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentResult } from '../../models/student-result.model';
 import { StudentResultService } from '../../services/student-result.service';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-student-result',
   templateUrl: './student-result.component.html',
   styleUrls: ['./student-result.component.css'],
 })
 export class StudentResultComponent implements OnInit {
+  data : StudentResult[];
   tableData: any;
-  constructor(private service: StudentResultService) { }
+  constructor(private service: StudentResultService, private route  : ActivatedRoute) { }
 
   ngOnInit() {
-
-
-    this.getResults();
-  }
-  getResults(): void {
-    this.service.getResults().subscribe((res: StudentResult[]) => {
-      this.generateTableData(res);
-    });
-
+    this.data = this.route.snapshot.data['results'];
+    this.generateTableData(this.data);
   }
   generateTableData(data): void {
     this.tableData = data.map(res => {
@@ -48,7 +43,6 @@ export class StudentResultComponent implements OnInit {
         return data['max'] = false;
       }
     })
-    console.log(this.tableData);
   }
   getMax(arr, prop) {
     var max;

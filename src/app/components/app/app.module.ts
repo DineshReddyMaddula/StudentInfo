@@ -10,6 +10,7 @@ import { StudentResultComponent } from '../student-result/student-result.compone
 import { StudentAdmissionComponent } from '../student-admission/student-admission.component';
 import { StudentResultService } from '../../services/student-result.service';
 import { YearValidator } from '../student-admission/year-validator.directive';
+import { StudentResultResolverService } from '../../resolvers/student-result.resolver.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { YearValidator } from '../student-admission/year-validator.directive';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [StudentResultService],
+  providers: [StudentResultService, StudentResultResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
