@@ -1,0 +1,10 @@
+.container{
+    width: 40%;
+    margin-top : 3%;
+    padding: 2%;
+    border-radius: 2%;
+    background-color: lightgrey
+}
+table{
+    background-color: lightgrey;
+}

@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="panel">
+    <h3>Student Admission</h3>
+  </div>
+    <form class="text-center">
+        <div class="form-group">
+            <input type="text" class="form-control"
+            placeholder="First Name"
+            required maxlength="20"
+            pattern="[a-zA-Z][a-zA-Z ]+"
+            [(ngModel)]="model.firstName" name="fname"
+            #firstName="ngModel">
+            <div [hidden]="firstName.valid || firstName.pristine"
+               class="alert alert-danger">
+               <div [hidden]="!firstName.hasError('required')">First Name is required</div>
+               <div [hidden]="!firstName.hasError('pattern')">Only alphabets allowed</div>
+            </div>
+         </div>
+         <div class="form-group">
+            <input type="text" class="form-control"
+            required maxlength="20"
+            placeholder="Last Name"
+            pattern="[a-zA-Z][a-zA-Z ]+"
+            [(ngModel)]="model.lastName" name="lname"
+            #lastName="ngModel">
+            <div [hidden]="lastName.valid || lastName.pristine"
+               class="alert alert-danger">
+               <div [hidden]="!lastName.hasError('required')">Last Name is required</div>
+               <div [hidden]="!lastName.hasError('pattern')">Only alphabets allowed</div>
+            </div>
+         </div>
+         <div class="form-group">
+            <input type="text" class="form-control"
+            placeholder="Class"
+            pattern="^[A-Za-z0-9_]+$" required
+            [(ngModel)]="model.class" name="class"
+            #class="ngModel">
+            <div [hidden]="class.valid || class.pristine"
+               class="alert alert-danger">
+               <div [hidden]="!class.hasError('required')">Class is required</div>
+               <div [hidden]="!class.hasError('pattern')">Only alphanumeric is allowed</div>
+            </div>
+         </div>
+         <div class="form-group">
+            <input type="text" class="form-control"
+            placeholder="Year of passing"
+            pattern="^[0-9_]+$" required
+            [(ngModel)]="model.year" name="year"
+            validateYear="year"
+            maxlength="4"
+            #year="ngModel">
+            <div [hidden]="year.valid && year.pristine"
+               class="alert alert-danger">
+               <div [hidden]="!year.hasError('required')">Year of passing is required</div>
+               <div [hidden]="!year.hasError('pattern')">Only Numbers are allowed</div>
+               <div [hidden]="year.hasError('validateYear')">You have entered year above 2017</div>
+            </div>
+         </div>
+         <div class="form-group">
+            <input type="text" class="form-control"
+            placeholder="Percentage of marks"
+            pattern="^[0-9_]+$" 
+            required
+             maxlength="3"
+            [(ngModel)]="model.marks" name="marks"
+            #marks="ngModel">
+            <div [hidden]="marks.valid || marks.pristine"
+               class="alert alert-danger">
+               <div [hidden]="!marks.hasError('pattern')">Only Numbers are allowed</div>
+               <div [hidden]="!marks.hasError('required')">Percentage of marks is required</div>
+            </div>
+         </div>
+         <button class="btn btn-outline-info  btn-md my-2 btn-rounded  " [disabled]="!(firstName.valid && lastName.valid && class.valid  && marks.valid)" type="submit" >Submit</button>
+    </form>
+</div>
