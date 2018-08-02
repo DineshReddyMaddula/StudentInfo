@@ -16,8 +16,8 @@ import { NG_VALIDATORS,Validator,AbstractControl } from '@angular/forms';
         validate(c: AbstractControl): {} {
             let v = c.value;
             if(v > 2017) return {
-                validateYear: false
+                validateYear: true
             }
-            return {validateYear : true};
+            return null
         }
     }

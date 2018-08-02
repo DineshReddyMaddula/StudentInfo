@@ -7,7 +7,7 @@
             <input type="text" class="form-control"
             placeholder="First Name"
             required maxlength="20"
-            pattern="[a-zA-Z][a-zA-Z ]+"
+            pattern="^[a-zA-Z ]*$"
             [(ngModel)]="model.firstName" name="fname"
             #firstName="ngModel">
             <div [hidden]="firstName.valid || firstName.pristine"
@@ -20,7 +20,7 @@
             <input type="text" class="form-control"
             required maxlength="20"
             placeholder="Last Name"
-            pattern="[a-zA-Z][a-zA-Z ]+"
+            pattern="^[a-zA-Z ]*$"
             [(ngModel)]="model.lastName" name="lname"
             #lastName="ngModel">
             <div [hidden]="lastName.valid || lastName.pristine"
@@ -49,11 +49,11 @@
             validateYear="year"
             maxlength="4"
             #year="ngModel">
-            <div [hidden]="year.valid && year.pristine"
+            <div [hidden]="year.valid || year.pristine"
                class="alert alert-danger">
                <div [hidden]="!year.hasError('required')">Year of passing is required</div>
                <div [hidden]="!year.hasError('pattern')">Only Numbers are allowed</div>
-               <div [hidden]="year.hasError('validateYear')">You have entered year above 2017</div>
+               <div [hidden]="!year.hasError('validateYear')">You have entered year above 2017</div> 
             </div>
          </div>
          <div class="form-group">
@@ -70,6 +70,6 @@
                <div [hidden]="!marks.hasError('required')">Percentage of marks is required</div>
             </div>
          </div>
-         <button class="btn btn-outline-info  btn-md my-2 btn-rounded  " [disabled]="!(firstName.valid && lastName.valid && class.valid  && marks.valid)" type="submit" >Submit</button>
+         <button class="btn btn-outline-info  btn-md my-2 btn-rounded  " [disabled]="!(firstName.valid && lastName.valid && class.valid && year.valid  && marks.valid)" type="submit" >Submit</button>
     </form>
 </div>
